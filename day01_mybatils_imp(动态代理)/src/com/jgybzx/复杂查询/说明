@@ -1,0 +1,31 @@
+问题：之前的写法实体类的属性名称和数据库字段的名字都一样，
+     但是在复杂查询中，返回的字段 可以起 别名
+        例如：SELECT id , username , birthday , sex, address AS addr FROM USER;
+       所以 数据库字段和实体类字段不一致的情况下，要进行 属性和字段映射
+
+
+<!--
+        实现手动映射封装
+            resultMap
+                id="userResultMap" 此标签唯一标识，
+                type="user" 封装后的实体类型
+           <id column="id" property="id"></id>  表中主键字段封装
+                column="id"  表中的字段名
+                property="id" user实体的属性名
+           <result column="NAME" property="username"></result>  表中普通字段封装
+                column="NAME"  表中的字段名
+                property="username" user实体的属性名
+
+                补充：字段与属性的名字是一样的，可以省略手动封装 【了解】
+    -->
+    <resultMap id="userResultMap" type="实体类全类名">
+        <id column="uid" property="id"></id>
+        <result column="NAME" property="username"></result>
+        <result column="bir" property="birthday"></result>
+        <result column="gender" property="sex"></result>
+        <result column="address" property="address"></result>
+    </resultMap>
+
+    <select id="findAllResultMap" resultMap="userResultMap">
+       SELECT id AS uid,username AS NAME,birthday AS bir,sex AS gender ,address FROM USER
+    </select>

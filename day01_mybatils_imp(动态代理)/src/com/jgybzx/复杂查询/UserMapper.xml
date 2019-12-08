@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 是UserDao的全类名-->
+<mapper namespace="com.jgybzx.复杂查询.UserDao">
+    <!--
+        resultMap 标签实现 手动映射
+            id =" "  此标签的唯一标识
+            type = "" 封装后的实体类型,全类名
+            主键配置
+            <id column="数据库查询出列名（别名 ）" property="实体类中的属性"></id>
+            普通字段
+            <result column="数据库的列名" property="实体类中的属性"></result>
+            补充：字段与属性的名字是一样的，可以省略手动封装,只需要映射一下不同的即可
+    -->
+    <resultMap id="userResultMap" type="com.jgybzx.domain.User">
+        <id column="id" property="id"/><!-- 主键配置-->
+        <result column="id" property="id"/> <!-- 实体类和表 字段相同可以不写-->
+        <result column="username" property="username"/>
+        <result column="addr" property="address"/>
+        <result column="bir" property="birthday"/>
+    </resultMap>
+    <select id="findAllResultMap" resultMap="userResultMap">
+        select id,username,birthday as bir ,sex ,address as addr from user ;
+    </select>
+    <!--==============================================================-->
+    <!--
+        多条件查询，【如果参数有多个，参数类型 parameterType 可以省略】
+        四种方式，传递参数
+        1：arg 数组 表示 0表示第一个参数 1表示第二个参数
+        select * from user where id = #{arg0} and username = #{arg1}
+        2： param  参数的位置 第一个 第二个
+        select * from user where id = #{param1} and username = #{param2}
+
+        3：【使用】在接口中，传递参数的时候，给参数起个名字 @Param 表示的含义是 此参数 在xml配置文件中 应该如何获取
+        public List<User> findByIdAndUsername2(@Param("id") Integer id,@Param("username") String username);
+
+        4:【使用】使用对象类型pojo(实体类javaBean)传递参数
+        User paramerUser = new User();
+        paramerUser.setId(45);
+        paramerUser.setSex("女");
+        List<User> users = userDao.findByCondition2(paramerUser);
+        <select id="findByCondition2" resultType="实体类全类名" parameterType="实体类全类名">
+         select * from user where id > #{id} and sex= #{sex}
+    </select>
+    -->
+    <select id="findAllByCondition1" resultType="com.jgybzx.domain.User">
+        SELECT * FROM USER WHERE id >#{arg0} AND sex = #{arg1};
+    </select>
+
+
+    <select id="findAllByCondition2" resultType="com.jgybzx.domain.User" >
+        SELECT * FROM USER WHERE id >#{param1} AND sex = #{param2};
+    </select>
+
+
+
+
+
+
+
+
+
+    <select id="findAllParam" resultType="com.jgybzx.domain.User" >
+        SELECT * FROM USER WHERE id >#{id} AND sex = #{gender};
+    </select>
+
+
+
+
+
+    <select id="findAllByPoJo" resultType="com.jgybzx.domain.User" parameterType="com.jgybzx.domain.User">
+        SELECT * FROM USER WHERE id >#{id} AND sex = #{sex};
+    </select>
+</mapper>

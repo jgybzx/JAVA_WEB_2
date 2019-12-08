@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 是UserDao的全类名-->
+<mapper namespace="com.jgybzx.模糊查询.UserDao">
+    <select id="findByName1" parameterType="String" resultType="com.jgybzx.domain.User">
+        SELECT * FROM USER WHERE username LIKE #{参数只有一个，可以随便写}
+    </select>
+
+
+
+
+
+
+    <select id="findByName2" parameterType="String" resultType="com.jgybzx.domain.User">
+        <!-- 不推荐使用，因为Oracle数据库 除了设置别名其余位置不能使用 双引号 -->
+        SELECT * FROM USER WHERE username LIKE "%" #{参数只有一个，可以随便写} "%"
+    </select>
+
+
+
+    <select id="findByName3" parameterType="String" resultType="com.jgybzx.domain.User">
+        SELECT * FROM USER WHERE username LIKE '%${value}%'
+    </select>
+
+
+
+
+
+
+
+    <select id="findByName4" parameterType="String" resultType="com.jgybzx.domain.User">
+        <!--【推荐使用】
+            注意：oracle数据库中 concat() 函数只能传递二个参数， 可以使用函数嵌套来解决这个问题
+            select * from user where username like  concat(concat('%',#{username}),'%');
+        -->
+        SELECT * FROM USER WHERE username LIKE concat('%',#{sa},'%')
+    </select>
+</mapper>

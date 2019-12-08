@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 是UserDao的全类名-->
+<mapper namespace="com.jgybzx.dao.UserDao">
+    <!--
+        标签id与接口方法名一致
+        标签 parameterType 参数类型
+        resultType 返回值类型
+            增删改  没有resultType属性，所以接口中的方法可以写为无返回值，
+            但实际是返回被影响的行数
+    -->
+    <insert id="insert" parameterType="com.jgybzx.domain.User">
+        insert into USER  values (#{id},#{username},#{birthday},#{sex},#{address});
+    </insert>
+    <update id="update" parameterType="user">
+        update user set username=#{username},birthday=#{birthday},sex=#{sex},address=#{address} where id = #{id} ;
+    </update>
+
+
+
+
+
+
+
+
+
+
+
+
+    <delete id="delete" parameterType="int">
+    delete  from user where id =#{如果参数只有一个值，并且是普通类型，这里变可以随便写}
+    </delete>
+
+
+
+    <select id="findAll" resultType="user">
+    select * from USER ;
+    </select>
+    <select id="findById" resultType="com.jgybzx.domain.User">
+    select * from USER where id = #{id，随便写} ;
+    </select>
+    <select id="findCount" resultType="int">
+        select count(*) from user ;
+    </select>
+</mapper>

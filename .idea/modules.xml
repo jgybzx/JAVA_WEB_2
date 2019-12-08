@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/day01_mybatils_imp(动态代理)/day01_mybatils_imp(动态代理).iml" filepath="$PROJECT_DIR$/day01_mybatils_imp(动态代理)/day01_mybatils_imp(动态代理).iml" />
       <module fileurl="file://$PROJECT_DIR$/day01_mybatis/day01_mybatis.iml" filepath="$PROJECT_DIR$/day01_mybatis/day01_mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day02_mybatis_主键返回&amp;动动态sql/day02_mybatis_主键返回&amp;动动态sql.iml" filepath="$PROJECT_DIR$/day02_mybatis_主键返回&amp;动动态sql/day02_mybatis_主键返回&amp;动动态sql.iml" />
     </modules>
   </component>
 </project>
