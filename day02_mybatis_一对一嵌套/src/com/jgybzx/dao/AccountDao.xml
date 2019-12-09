@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 是Dao的全类名-->
+<mapper namespace="com.jgybzx.dao.AccountDao">
+    <resultMap id="AccountToUser" type="account"><!--要返回的 数据类型-->
+        <id column="id" property="id"/>
+        <!--       Account的 普通字段-->
+        <result column="money  " property="money  "/>
+        <result column="address" property="address"/>
+        <result column="aname  " property="aname  "/>
+        <!--        配置外键(User对象)对应的字段-->
+        <association property="user" javaType="com.jgybzx.domain.User" select="com.jgybzx.dao.UserDao.findByUid"
+                     column="uid">
+            <id column="uid" property="id"/><!--User id-->
+            <result column="username" property="username"/><!--User username-->
+            <result column="password" property="password"/><!--User id-->
+            <result column="gender" property="gender"/><!--User password-->
+            <result column="email" property="email"/><!--User email-->
+            <result column="telephone" property="telephone"/><!--User telephone-->
+        </association>
+    </resultMap>
+    <select id="findAccountAll" resultMap="AccountToUser">
+        SELECT * FROM tbl_account ta
+        LEFT JOIN tbl_user tu
+        ON ta.`uid` = tu.`id`
+    </select>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 是Dao的全类名-->
+<mapper namespace="com.jgybzx.dao.UserDao">
+    <resultMap id="UserToAccounts" type="user">
+        <id column="id" property="id"/>
+        <!--普通字段-->
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="gender" property="gender"/>
+        <result column="email" property="email"/>
+        <result column="telephone" property="telephone"/>
+        <!--        private List<Account> accounts;-->
+        <collection property="accounts" javaType="list" ofType="com.jgybzx.domain.Account"
+                    select="com.jgybzx.dao.AccountDao.findBuUid" column="id">
+            <id column="id" property="id"/>
+            <result column="money" property="money"/>
+            <result column="address" property="address"/>
+            <result column="aname" property="aname"/>
+        </collection>
+    </resultMap>
+    <select id="findUserAll" resultMap="UserToAccounts">
+        SELECT * FROM tbl_user
+    </select>
+</mapper>

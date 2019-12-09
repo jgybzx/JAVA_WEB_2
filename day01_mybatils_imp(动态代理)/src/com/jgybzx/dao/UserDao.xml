@@ -18,22 +18,9 @@
         update user set username=#{username},birthday=#{birthday},sex=#{sex},address=#{address} where id = #{id} ;
     </update>
 
-
-
-
-
-
-
-
-
-
-
-
     <delete id="delete" parameterType="int">
     delete  from user where id =#{如果参数只有一个值，并且是普通类型，这里变可以随便写}
     </delete>
-
-
 
     <select id="findAll" resultType="user">
     select * from USER ;

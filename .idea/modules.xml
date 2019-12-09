@@ -4,6 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/day01_mybatils_imp(动态代理)/day01_mybatils_imp(动态代理).iml" filepath="$PROJECT_DIR$/day01_mybatils_imp(动态代理)/day01_mybatils_imp(动态代理).iml" />
       <module fileurl="file://$PROJECT_DIR$/day01_mybatis/day01_mybatis.iml" filepath="$PROJECT_DIR$/day01_mybatis/day01_mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day02_mybatis_一对一关系/day02_mybatis_一对一关系.iml" filepath="$PROJECT_DIR$/day02_mybatis_一对一关系/day02_mybatis_一对一关系.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day02_mybatis_一对一嵌套/day02_mybatis_一对一嵌套.iml" filepath="$PROJECT_DIR$/day02_mybatis_一对一嵌套/day02_mybatis_一对一嵌套.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day02_mybatis_一对多关系/day02_mybatis_一对多关系.iml" filepath="$PROJECT_DIR$/day02_mybatis_一对多关系/day02_mybatis_一对多关系.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day02_mybatis_一对多嵌套/day02_mybatis_一对多嵌套.iml" filepath="$PROJECT_DIR$/day02_mybatis_一对多嵌套/day02_mybatis_一对多嵌套.iml" />
       <module fileurl="file://$PROJECT_DIR$/day02_mybatis_主键返回&amp;动动态sql/day02_mybatis_主键返回&amp;动动态sql.iml" filepath="$PROJECT_DIR$/day02_mybatis_主键返回&amp;动动态sql/day02_mybatis_主键返回&amp;动动态sql.iml" />
     </modules>
   </component>

@@ -9,7 +9,7 @@
       resource: 相对位置
       <properties resource="jdbc.properties" url="绝对的物理位置"/>
     -->
-    <properties resource="jdbc.properties" />
+    <properties resource="jdbc.properties"/>
 
     <!--别名的配置-->
     <typeAliases>
@@ -17,6 +17,7 @@
         <!--<typeAlias type="com.itheima.domain.User" alias="user"></typeAlias>-->
         <!--在此包下的所有的类都使用别名 : 使用的别名 默认就是类名 且不区分大小写, 建议写小写-->
         <package name="com.jgybzx.domain"/>
+
     </typeAliases>
     <!--   environments 环境  可以配置多个环境，默认 -->
     <environments default="development">
@@ -40,9 +41,8 @@
           要求xml的文件名称 必须和接口的名称一模一样 且位置一模一样
           在此包下的所有接口都会被加载 且会自动匹配同名的xml文件
         -->
-<!--        <package name="com.jgybzx.dao"/>-->
-        <mapper resource="com/jgybzx/dao/UserDao.xml"/>
-        <!--<mapper resource="org/mybatis/example/BlogMapper.xml"/>-->
+        <package name="com.jgybzx.dao"/>
+        <!--        <package name="com.jgybzx.dao"/>-->
 
     </mappers>
 </configuration>

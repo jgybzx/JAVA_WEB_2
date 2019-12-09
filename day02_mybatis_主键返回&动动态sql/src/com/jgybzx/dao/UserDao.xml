@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 是Dao的全类名-->
+<mapper namespace="com.jgybzx.dao.UserDao">
+    <!--
+        public void getId(User user);
+        方式一: 让mybatis默认赋值id
+            useGeneratedKeys=使用生成的主键 true 表示使用主键  false表示不用
+            keyProperty=""  实体类中的主键 属性
+            keyColumn="" 数据库的主键列名
+            不好处: 此方式不通用 , 使用有自动生成主键的数据库 mysql支持 oracel不支持
+    -->
+    <!--    <insert id="getId" parameterType="user" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+            INSERT INTO USER VALUES(#{id},#{username},#{birthday},#{sex},#{address})
+        </insert>-->
+    <insert id="getId" parameterType="user">
+        <selectKey keyColumn="id" keyProperty="id" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID();
+        </selectKey>
+        INSERT INTO USER VALUES(#{id},#{username},#{birthday},#{sex},#{address})
+    </insert>
+    <!--    根据id 和 性别查询数据-->
+    <select id="findByIdAndName" resultType="user">
+        select * from user
+        <where>
+            <if test="id !=null and id !=''">
+                and id >#{id}
+            </if>
+            <if test="sex!=null and sex!=''">
+                and sex = #{sex}
+            </if>
+        </where>
+    </select>
+
+    <!--     public List<User> findByIdAndName2(User user);-->
+    <select id="findByIdAndName2" resultType="user">
+        select * from user
+        <where>
+            <choose>
+                <when test="id !=null and id !=''">
+                    and id >#{id}
+                </when>
+                <when test="sex!=null and sex!=''">
+                    and sex = #{sex}
+                </when>
+                <otherwise>
+                    1 = '1'
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+<!--    <update id="update" parameterType="user">
+        update user set username = #{username}, sex = #{sex}  where id = #{id};
+    </update>-->
+    <update id="update" parameterType="user">
+        update user
+        <set>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="sex != null and sex != ''">
+                sex = #{sex},
+            </if>
+            <if test="address != null and address != ''">
+                address = #{address},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+<!--    =========================================-->
+    <select id="findUserByidInArray"  parameterType="integer[]" resultType="user">
+        select * from user where id in
+        <foreach collection="array" open="(" close=")" separator="," item="user">
+            #{user}
+        </foreach>
+    </select>
+<!--    UPDATE USER SET username = 'foreach修改',address = 'foreach修改' WHERE id IN (41,42);-->
+    <update id="UpdateUserByidInList"   >
+        UPDATE USER
+        <set>
+            <if test="userinfo.username != null and userinfo.username != ''">
+                username = #{userinfo.username},
+            </if>
+            <if test="userinfo.address != null and userinfo.address != ''">
+                address = #{userinfo.address },
+            </if>
+        </set>
+        <foreach collection="lsitInt" open="WHERE id in (" close=")" separator="," item="user">
+            #{user}
+        </foreach>
+    </update>
+<!--    ======================================-->
+    <select id="findByVo "  parameterType="queryVo" resultType="user">
+        select  * from user
+        <foreach collection="Ids" open="where id in (" close=")" separator="," item="tempId">
+            #{tempId}
+        </foreach>
+    </select>
+
+
+
+
+
+
+</mapper>
