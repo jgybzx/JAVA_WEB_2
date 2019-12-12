@@ -1,5 +1,6 @@
 package com.jgybzx.domain;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
  * @Description:
  * @version: 此对象专门用于查询数据库时候封装数据使用
  */
-public class QueryVo {
+public class QueryVo  implements Serializable {
     public QueryVo() {
     }
 

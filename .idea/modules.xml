@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/AJAX/AJAX.iml" filepath="$PROJECT_DIR$/AJAX/AJAX.iml" />
       <module fileurl="file://$PROJECT_DIR$/day01_mybatils_imp(动态代理)/day01_mybatils_imp(动态代理).iml" filepath="$PROJECT_DIR$/day01_mybatils_imp(动态代理)/day01_mybatils_imp(动态代理).iml" />
       <module fileurl="file://$PROJECT_DIR$/day01_mybatis/day01_mybatis.iml" filepath="$PROJECT_DIR$/day01_mybatis/day01_mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/day02_mybatis_一对一关系/day02_mybatis_一对一关系.iml" filepath="$PROJECT_DIR$/day02_mybatis_一对一关系/day02_mybatis_一对一关系.iml" />
@@ -9,6 +10,11 @@
       <module fileurl="file://$PROJECT_DIR$/day02_mybatis_一对多关系/day02_mybatis_一对多关系.iml" filepath="$PROJECT_DIR$/day02_mybatis_一对多关系/day02_mybatis_一对多关系.iml" />
       <module fileurl="file://$PROJECT_DIR$/day02_mybatis_一对多嵌套/day02_mybatis_一对多嵌套.iml" filepath="$PROJECT_DIR$/day02_mybatis_一对多嵌套/day02_mybatis_一对多嵌套.iml" />
       <module fileurl="file://$PROJECT_DIR$/day02_mybatis_主键返回&amp;动动态sql/day02_mybatis_主键返回&amp;动动态sql.iml" filepath="$PROJECT_DIR$/day02_mybatis_主键返回&amp;动动态sql/day02_mybatis_主键返回&amp;动动态sql.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day03_mybatis_注解开发/day03_mybatis_注解开发.iml" filepath="$PROJECT_DIR$/day03_mybatis_注解开发/day03_mybatis_注解开发.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../非骨架EE/非骨架EE.iml" filepath="$PROJECT_DIR$/../非骨架EE/非骨架EE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../非骨架SE/非骨架SE.iml" filepath="$PROJECT_DIR$/../非骨架SE/非骨架SE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../骨架SE/骨架SE.iml" filepath="$PROJECT_DIR$/../骨架SE/骨架SE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../骨架javaEE/骨架javaEE.iml" filepath="$PROJECT_DIR$/../骨架javaEE/骨架javaEE.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="骨架javaEE:war exploded">
+    <output-path>$PROJECT_DIR$/../骨架javaEE/target/骨架javaEE</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>骨架javaEE</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="骨架javaEE" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../骨架javaEE/target/骨架javaEE/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="骨架javaEE/web/Web" />
+    </root>
+  </artifact>
+</component>

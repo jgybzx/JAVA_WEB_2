@@ -2,16 +2,11 @@ package com.jgybzx.dao;
 
 import com.jgybzx.domain.QueryVo;
 import com.jgybzx.domain.User;
-import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
-/**
- * @author: guojy
- * @date: 2019/12/8 14:24
- * @Description:
- * @version:
- */
+
 public interface UserDao {
     //插入数据，返回id
     public void getId(User user);
@@ -28,7 +23,14 @@ public interface UserDao {
 
     //使用 foreach，实现 in  子查询
     public List<User> findUserByidInArray(Integer[] arr);
-
+    @Results({
+            //id封装
+            @Result(column = "id",property = "id",id = true),
+            //普通字段封装，可以省略
+            //外键封装
+            @Result(property = "要封装 的对象",javaType = List.class,column = "传递的参数",
+            many = @Many(select = "Dao的全类名.方法名") )
+    })
     public void UpdateUserByidInList(@Param("lsitInt") List<Integer> list, @Param("userinfo") User user);
 
          public List<User> findByVo(QueryVo queryVo);

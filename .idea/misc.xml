@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/../com.jgybzx" />
+    <file type="web" url="file://$PROJECT_DIR$/../非骨架EE" />
+    <file type="web" url="file://$PROJECT_DIR$/../骨架javaEE" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/../maven创建_EE/pom.xml" />
+        <option value="$PROJECT_DIR$/../非骨架SE/pom.xml" />
+        <option value="$PROJECT_DIR$/../骨架SE/pom.xml" />
+        <option value="$PROJECT_DIR$/../非骨架EE/pom.xml" />
+        <option value="$PROJECT_DIR$/../骨架javaEE/pom.xml" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectRootManager">
     <output url="file://$PROJECT_DIR$/out" />
   </component>

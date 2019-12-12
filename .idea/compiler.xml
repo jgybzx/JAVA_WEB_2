@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="非骨架SE" />
+        <module name="骨架SE" />
+        <module name="骨架javaEE" />
+        <module name="非骨架EE" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="com.jgybzx" target="1.7" />
+      <module name="maven创建_EE" target="1.5" />
+      <module name="非骨架EE" target="1.5" />
+      <module name="非骨架SE" target="1.5" />
+      <module name="骨架javaEE" target="1.8" />
+      <module name="骨架SE" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
